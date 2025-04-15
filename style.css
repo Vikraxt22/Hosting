@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: #fff0f5;
+    overflow-x: hidden;
+  }
+  
+  h1, h2 {
+    font-family: 'Comfortaa', cursive;
+  }
+  
+  .hero {
+    background: linear-gradient(135deg, #ffc1cc, #e6ccff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .hero-text {
+    color: white;
+    max-width: 600px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    background: #ff69b4;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background: #ff85c1;
+  }
+  
+  /* Memories Section */
+  .memories {
+    padding: 3rem 2rem;
+    background: #fff5fc;
+    text-align: center;
+  }
+  
+  .memories h2 {
+    font-size: 2.5rem;
+    color: #d87cb0;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .gallery img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Floating Hearts */
+  #heart-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  .heart {
+    position: absolute;
+    font-size: 2rem;
+    color: #ff69b4;
+    animation: float 6s linear infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .gallery img {
+      max-width: 90%;
+    }
+  }
+  .letter-body {
+    background: linear-gradient(135deg, #ffe6f7, #e0ccff);
+    font-family: 'Quicksand', sans-serif;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .letter-container {
+    background: white;
+    max-width: 600px;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  
+  .letter-container h1 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.2rem;
+    color: #d87cb0;
+    margin-bottom: 1rem;
+  }
+  .feelings-body {
+    background: linear-gradient(145deg, #ffe4f4, #ddccff);
+    font-family: 'Quicksand', sans-serif;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .feelings-container {
+    background: white;
+    max-width: 700px;
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.8;
+  }
+  
+  .feelings-container h1 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.5rem;
+    color: #c16ed6;
+    margin-bottom: 1.5rem;
+  }
+       

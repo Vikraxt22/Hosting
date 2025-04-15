@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Sweet Memories 📸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(145deg, #ffe8f7, #e0f7ff);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem auto 1rem;
+      font-family: 'Comfortaa', cursive;
+      color: #d448a4;
+      font-size: 2.8rem;
+      text-shadow: 0 0 10px #ffd0f0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 3rem;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 190, 255, 0.5);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.07);
+    }
+
+    .caption {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #fff5;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .btn, .slideshow-toggle {
+      display: inline-block;
+      margin: 1rem auto;
+      background: #ffa3e0;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ffa3ef;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover, .slideshow-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 22px #ff91e5;
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffffffaa;
+      border: none;
+      font-size: 1.4rem;
+      border-radius: 50%;
+      padding: 0.6rem 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff4;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .gallery img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Our Sweet Memories ✨</h1>
+
+  <div class="gallery" id="gallery">
+    <div class="gallery-item">
+      <img src="1.png" alt="Memory 1">
+      <p class="caption">That rainy walk 🌧️</p>
+    </div>
+    <div class="gallery-item">
+      <img src="img2.jpg" alt="Memory 2">
+      <p class="caption">Midnight laughs 💬</p>
+    </div>
+    <div class="gallery-item">
+      <img src="img3.jpg" alt="Memory 3">
+      <p class="caption">Sunset moment 🌇</p>
+    </div>
+    <div class="gallery-item">
+      <img src="img4.jpg" alt="Memory 4">
+      <p class="caption">Cafe corner chats ☕</p>
+    </div>
+    <div class="gallery-item">
+      <img src="img5.jpg" alt="Memory 5">
+      <p class="caption">Your favorite dress 👗</p>
+    </div>
+    <div class="gallery-item">
+      <img src="img6.jpg" alt="Memory 6">
+      <p class="caption">Our goofy selfie 📸</p>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="Enlarged memory">
+  </div>
+
+  <div style="text-align:center">
+    <button class="slideshow-toggle" onclick="toggleSlideshow()">Start Slideshow ▶️</button>
+    <br>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+
+  <audio autoplay loop id="bg-music">
+    <source src="your-soft-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="music-toggle" class="music-btn">🔊</button>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const music = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("music-toggle");
+
+    let slideshowInterval;
+    let currentSlide = 0;
+    let isSlideshowRunning = false;
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("show");
+        lightboxImg.src = img.src;
+        currentSlide = index;
+      });
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("show");
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggleBtn.textContent = "🔊";
+      } else {
+        music.pause();
+        toggleBtn.textContent = "🔇";
+      }
+    });
+
+    function toggleSlideshow() {
+      if (!isSlideshowRunning) {
+        isSlideshowRunning = true;
+        document.querySelector('.slideshow-toggle').textContent = "Stop Slideshow ⏹️";
+        lightbox.classList.add("show");
+        lightboxImg.src = galleryImages[currentSlide].src;
+        slideshowInterval = setInterval(() => {
+          currentSlide = (currentSlide + 1) % galleryImages.length;
+          lightboxImg.src = galleryImages[currentSlide].src;
+        }, 2000);
+      } else {
+        clearInterval(slideshowInterval);
+        isSlideshowRunning = false;
+        lightbox.classList.remove("show");
+        document.querySelector('.slideshow-toggle').textContent = "Start Slideshow ▶️";
+      }
+    }
+  </script>
+
+</body>
+</html>

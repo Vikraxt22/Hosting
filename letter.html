@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Read My Letter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e0342, #000);
+      color: #fff;
+      overflow: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out alternate;
+      box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.3; transform: scale(1); }
+      to   { opacity: 1; transform: scale(1.4); }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, white, transparent);
+      opacity: 0.8;
+      transform: rotate(45deg);
+      animation: shoot 1s ease-out forwards;
+    }
+
+    @keyframes shoot {
+      from {
+        transform: translate(-200px, -200px) rotate(45deg);
+        opacity: 1;
+      }
+      to {
+        transform: translate(100vw, 100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    h1 {
+      font-family: 'Comfortaa', cursive;
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #8a2be2;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #dcdcdc;
+      margin-bottom: 15px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 1.1em;
+      color: #b3b3ff;
+    }
+
+    .button {
+      margin-top: 25px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ff85c1, #6ecbff);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .container {
+        margin: 50px auto;
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+
+      .signature {
+        font-size: 1em;
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .signature {
+        font-size: 0.95em;
+      }
+
+      .container {
+        margin: 30px auto;
+        padding: 15px;
+      }
+
+      .button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="container">
+    <h1>Read My Letter</h1>
+    <p>You were my calm in chaos, the moonlight in all my dark skies.</p>
+    <p>I don't expect anything — just wanted you to know… I loved you truly.</p>
+    <div class="signature">— Vikrant 💙</div>
+    <a href="index.html" class="button">← Back to Home</a>
+  </div>
+
+  <script>
+    const starsContainer = document.querySelector('.stars');
+
+    // Regular twinkling stars
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+      starsContainer.appendChild(star);
+    }
+
+    // Shooting star effect every few seconds
+    setInterval(() => {
+      const shootingStar = document.createElement('div');
+      shootingStar.className = 'shooting-star';
+      shootingStar.style.top = `${Math.random() * window.innerHeight}px`;
+      shootingStar.style.left = `${Math.random() * -200}px`;
+      document.body.appendChild(shootingStar);
+
+      setTimeout(() => shootingStar.remove(), 1200);
+    }, 4000);
+  </script>
+  <audio src="audio1-[AudioTrimmer.com].mp3"></audio>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reply💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to right, #ffd4ec, #d1e7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Comfortaa', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    form {
+      background: #ffffffcc;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ffc0e0;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
+      background: #fff8fc;
+      box-shadow: 0 0 8px #ffe0f2;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff91d1;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff91d1;
+    }
+
+    .back-home {
+      margin-top: 2rem;
+      display: inline-block;
+      text-decoration: none;
+      color: #ff69b4;
+      font-weight: bold;
+      font-family: 'Comfortaa', cursive;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Send a Reply 💌</h1>
+
+  <form action="https://formspree.io/f/meoadrbk" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="6" placeholder="Your message for Vikrant..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <a href="index.html" class="back-home">← Back to Home</a>
+</body>
+</html>
