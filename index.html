@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Anushka 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f7, #e0f7ff);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+
+        .hero-text h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 2.5rem;
+            color: #ff69b4;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ffd9ec;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            background-color: #ffb0ec;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 0 10px #ffa3ef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ff8bd9;
+        }
+
+        #heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Hearts Container -->
+    <div id="heart-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Happy Birthday Anushka💗</h1>
+            <p>For Anushka, from Vikrant — with all my heart 💗</p>
+            <a href="memories.html" class="btn">Our Sweet Memories 💞</a>
+            <a href="letter.html" class="btn">Read My Letter 💌</a>
+            <a href="feelings.html" class="btn">My Feelings 💭</a>
+            <a href="outro.html" class="btn">Final Message 💌</a>
+            <a href="reply.html" class="btn">Send a Reply 💖</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
